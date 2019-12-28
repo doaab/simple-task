@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:super_admin']);
+    }
     /**
      * Display a listing of the resource.
      *

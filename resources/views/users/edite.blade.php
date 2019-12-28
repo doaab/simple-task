@@ -43,15 +43,24 @@
                                 <input type="email" name="email" class="form-control" value="{{$user->email}}" disabled>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">
+                                <label class="col-sm-3 control-label">
                                     Roles
                                 </label>
+                                <br>
                                 <div class="col-sm-10">
                                         <label class="checkbox-inline icheckbox">
                                             <input type="checkbox" name="roles[]" id="inlineCheckbox1" value="super_admin"
                                                     {{ $user->hasRole('super_admin') ? 'checked' : '' }}> Super admin
                                         </label>
                                 </div>
+                                <br>
+                                <div class="col-sm-10">
+                                        <label class="checkbox-inline icheckbox">
+                                            <input type="checkbox" name="roles[]" id="inlineCheckbox1" value="writer"
+                                                    {{ $user->hasRole('writer') ? 'checked' : '' }}> Writer
+                                        </label>
+                                </div>
+                                <br>
                                 <div class="col-sm-10">
                                         <label class="checkbox-inline icheckbox">
                                             <input type="checkbox" name="roles[]" id="inlineCheckbox1" value="user"{{ $user->hasRole('user') ? 'checked' : '' }}> User

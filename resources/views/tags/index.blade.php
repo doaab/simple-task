@@ -7,13 +7,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Tags</div>
-
-                    <div class="card-body">
-
-                        <table class="table table-striped">
-                            @if($tags ->count() > 0)
+                <div class="panel ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <i class="ti-layout-cta-left"></i> Tags
+                        </h3>
+                        <span class="pull-right">
+                                    <i class="fa fa-fw ti-angle-up clickable"></i>
+                                    <i class="fa fa-fw ti-close removepanel clickable"></i>
+                                </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table" id="table1">    @if($tags ->count() > 0)
                             <thead>
                             <tr>
                                 <th scope="col">Number</th>
@@ -43,6 +49,9 @@
                                 <p>No Tags</p>
                             @endif
                         </table>
+                        </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>

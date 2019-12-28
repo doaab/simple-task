@@ -48,7 +48,7 @@
                     <li class="dropdown"><a href="#">Category <i class="fa fa-angle-down"></i></a>
                         <ul role="menu" class="sub-menu">
                             @foreach($category as $cat)
-                                <li><a href="">{{ $cat->category }}</a></li>
+                                <li><a href="{{route('category.single',['id' => $cat->id])}}">{{ $cat->category}}</a></li>
                             @endforeach
                         </ul>
                     </li>

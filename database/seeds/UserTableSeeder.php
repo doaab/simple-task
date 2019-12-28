@@ -18,5 +18,12 @@ class UserTableSeeder extends Seeder
             ]);
 
         $user->attachRole('super_admin');
+        $writer = \App\User::create([
+            'name' => 'writer',
+            'email' => 'writer@app.com',
+            'password' => bcrypt('secret'),
+            ]);
+
+        $user->attachRole('writer');
     }// End of run
 }// End of Seeder

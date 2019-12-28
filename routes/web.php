@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/post/{slug}', 'HomeController@post')->name('post.show');
+Route::get('/category/{id}', 'HomeController@category')->name('category.single');
 Route::get('/allcategory', 'HomeController@categories')->name('category.show');
 
 Auth::routes();

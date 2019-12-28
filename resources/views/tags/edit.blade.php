@@ -6,9 +6,27 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit Tag (( {{$tag->tag}} ))</div>
+                    <div class="card-header"></div>
+
 
                     <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">
+                                            <i class="fa fa-fw ti-move"></i> Create Tag
+                                        </h3>
+                                        <span class="pull-right">
+                                    <i class="fa fa-fw ti-angle-up clickable"></i>
+                                </span>
+                                    </div>
+                                    <div class="panel-body">
                         @if(count($errors) > 0)
 
                             <ul class="navbar-nav mr-auto">
@@ -30,6 +48,10 @@
 
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

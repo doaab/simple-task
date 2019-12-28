@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('home');
+        return view('home')->with('posts', Post::all());
     }
     /**
      * Show the application dashboard.
@@ -52,7 +52,7 @@ class HomeController extends Controller
             ;
     }
     /**
-     * Show the application dashboard.
+     * Show the application Categories.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -66,7 +66,33 @@ class HomeController extends Controller
         $prev_page = Post::where('id', '<' , $post->id)->max('id');
         return view('category.show')
             ->with('posts' , Post::all())
-            ->with('category' , Category::all())
+            ->with('category' , Category::orderBy('created_at', 'desc')->get())
+            ->with('tags' , Tag::all())
+            ->with('last_post' , $last_post)
+            ->with('last_image' , $last_image)
+            ->with('next',Post::find($next_page))
+            ->with('prev',Post::find($prev_page))
+
+            ;
+    }    /**
+     * Show the application Single category.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function category($id)
+    {
+        $single = Category::where('id', $id)->first();
+
+        $post = Post::first();
+        $last_post = Post::orderBy('created_at','desc')->take(3)->get();
+        $last_image = Post::orderBy('created_at','desc')->take(6)->get();
+        $next_page = Post::where('id', '>' , $post->id)->min('id');
+        $prev_page = Post::where('id', '<' , $post->id)->max('id');
+        return view('category.single')
+            ->with('posts' , Post::all())
+            ->with('category' , Category::orderBy('created_at', 'desc')->get())
+            ->with('single' , $single->category)
+            ->with('single_post' , $single)
             ->with('tags' , Tag::all())
             ->with('last_post' , $last_post)
             ->with('last_image' , $last_image)

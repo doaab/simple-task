@@ -2,6 +2,8 @@
 @section('page', 'Post')
 @section('blank', 'Add New Post')
 @section('content')
+    @auth
+    @if((auth()->user()->hasRole('super_admin') != null) OR (auth()->user()->hasRole('writer') != null) )
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-11">
@@ -121,7 +123,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-2"></div>
                                                 <div class="col-sm-5 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-primary btn-block">Create</button>
+                                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
                                                 </div>
                                                 <div class="col-sm-2"></div>
 
@@ -137,4 +139,6 @@
             </div>
         </div>
     </div>
+    @endif
+    @endauth
 @endsection

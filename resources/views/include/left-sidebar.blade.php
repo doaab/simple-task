@@ -101,6 +101,8 @@
                 </div>
                 <ul class="navigation">
 
+                    @auth
+                    @if(auth()->user()->hasRole('super_admin') != null )
                     <li class="menu-dropdown">
                         <a href="javascript:void(0)">
                             <i class="fa fa-fw fa-tasks"></i>
@@ -120,8 +122,6 @@
                             </li>
                         </ul>
                     </li>
-                    @auth
-                    @if(auth()->user()->hasRole('super_admin') != null )
                         <li class="menu-dropdown">
                             <a href="javascript:void(0)">
                                 <i class="menu-icon ti-user"></i>
@@ -137,9 +137,7 @@
 
                             </ul>
                         </li>
-                    @endif
 
-                    @endauth
                     <li class="menu-dropdown">
                         <a href="javascript:void(0)">
                             <i class="menu-icon ti-tag"></i>
@@ -159,6 +157,9 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+
+                    @endauth
                     <li class="menu-dropdown">
                         <a href="javascript:void(0)">
                             <i class="fa fa-fw fa-file-archive-o" ></i>
@@ -178,7 +179,7 @@
                             </li>
                             <li>
                                 <a href="{{route('post.trashed')}}">
-                                    <i class="fa fa-fw fa-file-text-o"></i> View Profile
+                                    <i class="fa fa-fw fa-trash-o"></i> Trashed Posts
                                 </a>
                             </li>
                         </ul>

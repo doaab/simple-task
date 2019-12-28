@@ -22,5 +22,11 @@ class RolesTableSeeder extends Seeder
             'display_name' => 'user',
             'description' => 'Can do specific tasks ',
         ]);
+        // user role
+        $user = \App\Role::create([
+            'name' => 'writer',
+            'display_name' => 'writer',
+            'description' => 'Can do specific tasks ',
+        ]);
     }// end of run
 }

@@ -1,15 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
+    @auth
+@if((auth()->user()->hasRole('super_admin') != null) OR (auth()->user()->hasRole('writer') != null) )
+
+@section('page', 'Posts')
+@section('blank', 'Show')
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Posts</div>
-
-                    <div class="card-body">
+            <div class="col-md-11">
+                <div class="panel ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <i class="ti-layout-cta-left"></i> Posts
+                            : you can get all post as api from <a href="/api/posts" style="color:red;">here</a>
+                        </h3>
+                        <span class="pull-right">
+                                    <i class="fa fa-fw ti-angle-up clickable"></i>
+                                    <i class="fa fa-fw ti-close removepanel clickable"></i>
+                                </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
 
                         <table class="table table-striped">
                             @if($posts->count() > 0)
@@ -22,6 +36,7 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
+                                <th scope="col">Api</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,10 +50,14 @@
                                     <td>{{$post->updated_at}}</td>
                                     <td><img src="../{{$post->image}}" class="img-thumbnail" width="100px" height="100px"/></td>
                                     <td> <a class="" href="{{route('post.edit',['id' => $post->id])}}">
-                                          <i class="fa fa-edit"></i>edit </a>
+                                          <i class="fa fa-edit"></i> </a>
                                     </td>
                                     <td> <a class="" href="{{route('posts.delete',['id' => $post->id])}}">
-                                          <i class="fa fa-trash"></i> remove</a>
+                                          <i class="fa fa-trash"></i> </a>
+                                    </td>
+
+                                    <td><a class="" target="_blank" href="../api/posts/{{$post->id}}">
+                                          Api <i class="fa fa-fw fa-share"></i> </a>
                                     </td>
                                 </tr>
                                 <?php $num++; ?>
@@ -49,8 +68,13 @@
                             @endif
                         </table>
                     </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@endif
+@endauth
 @endsection
