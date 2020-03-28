@@ -131,7 +131,7 @@ class PostController extends Controller
             $featrued_new_name = time().$featrued->getClientOriginalName();
             $featrued -> move('uploads/posts/' , $featrued_new_name);
 
-            $post->featrued = 'uploads/posts/'.$featrued_new_name;
+            $post->image = 'uploads/posts/'.$featrued_new_name;
         }
         $post->title = $request->title;
         $post->content = $request->content;
