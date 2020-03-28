@@ -2,8 +2,7 @@
 <p>After download <p>
   <p>  Create ".env" file</p>
    <p> Copy ".env.example" content to ".env"</p>
-  <p> import data base from "task.sql" file and on </p>
-  <p color="green"> CMD </p> 
+  <p> import data base from "task.sql" file and on // CMD //</p>
   <div style="background:#ccc"> 
     <p>composer update</p> 
     <p>php artisan serve</p>
