@@ -1,5 +1,5 @@
 <h3>To install</h3>
-<p>after download <p>
+<p>After download <p>
   <p>  Create ".env" file</p>
    <p> Copy ".env.example" content to ".env"</p>
   <p> import data base from "task.sql" file and on </p>
