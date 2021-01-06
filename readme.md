@@ -9,6 +9,6 @@
     <p>php artisan serve</p>
     </div>
     Now You can visit "localhost:8000"
- <h3><a href="http://vmi458125.contaboserver.net/simple-task/public/">Demo</a></h3>.
+ <h3>You can see <a href="http://vmi458125.contaboserver.net/simple-task/public/">Demo</a></h3>.
 
 
