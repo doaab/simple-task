@@ -21,7 +21,7 @@
 <p> <b>-Roles (Admin –Editor –Normal user):</b> </p>
 <p> o- Admin Role: has a full access“admin panel & website”.</p>
 <p> o- Editor Role: has access on articles only on admin panel and the website.</p>
-<p> o= Normal user: has an access to the website only.-Simple website to display the content.</p>
+<p> o- Normal user: has an access to the website only.-Simple website to display the content.</p>
 <h4><b> 2-Restful API which lets external app to add/edit the data in system</h4>
 
 
