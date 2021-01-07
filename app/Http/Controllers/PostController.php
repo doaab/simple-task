@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreFormValdation;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -51,15 +52,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFormValdation $request)
     {
-        $this->validate($request, [
-            "title"     => "required",
-            "content"   => "required",
-            "tags"      => "required",
-            "category"  => "required",
-            "image" => "required|image",
-        ]);
         $featrued = $request->image;
         $featrued_new_name = time().$featrued->getClientOriginalName();
         $featrued -> move('uploads/posts/' , $featrued_new_name);

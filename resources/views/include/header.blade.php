@@ -28,7 +28,7 @@
     <link href="{{url('vendor/iCheck/css/all.css')}}" rel="stylesheet"/>
     <link href="{{asset('vendor/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/formelements.css')}}" media="all" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('css/datatable.css')}}" media="all" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('vendor/datatables/css/datatables.bootstrap.css')}}" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- end of global css -->
 </head>
