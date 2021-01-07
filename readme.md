@@ -9,7 +9,7 @@
     <p>php artisan serve</p>
     </div>
     Now You can visit "localhost:8000"
- <h3>You can see <a href="http://vmi458125.contaboserver.net/simple-task/public/">Demo</a>.</h3>
+ <!--h3>You can see <a href="http://vmi458125.contaboserver.net/simple-task/public/">Demo</a>.</h3-->
  <h3>
  This project has contain this ideas:
  </h3>
@@ -21,7 +21,7 @@
 <p> <b>-Roles (Admin –Editor –Normal user):</b> </p>
 <p> o- Admin Role: has a full access“admin panel & website”.</p>
 <p> o- Editor Role: has access on articles only on admin panel and the website.</p>
-<p> o= Normal user: has an access to the website only.-Simple website to display the content.</p>
+<p> o- Normal user: has an access to the website only.-Simple website to display the content.</p>
 <h4><b> 2-Restful API which lets external app to add/edit the data in system</h4>
 
 
