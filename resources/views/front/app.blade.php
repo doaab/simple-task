@@ -71,17 +71,36 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
+
                 <div class="contact-form bottom">
+                    @if(count($errors) > 0 )
+                        <ul class="navbar-nav mr-auto">
+                            @foreach($errors->all() as $error)
+                                <li class="nav-item dropdown">
+
+                                    <p style="color: red">{{$error}}</p>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    @if($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">*
+                            </button>
+                            <strong >{{ $message }}</strong>
+                        </div>
+                     @endif
                     <h2>Send a message</h2>
-                    <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                    <form  name="contact-form" method="post" action="{{ url('send_email/send') }}">
+                        {{ csrf_field() }}
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                            <input type="text" name="name" class="form-control"  placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
+                            <input type="email" name="email" class="form-control"  placeholder="Email ">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
+                            <textarea name="message" id="message" class="form-control" rows="8" placeholder="Your text here"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" class="btn btn-submit" value="Submit">

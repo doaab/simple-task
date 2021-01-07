@@ -21,7 +21,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
         return view('posts.index')
                 ->with('posts', Post::all());
     }
@@ -100,7 +99,6 @@ class PostController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
@@ -109,17 +107,12 @@ class PostController extends Controller
     {
 
         $post = Post::where('id' , $id)->first();
-
-        //dd($post);
         $this->validate($request, [
             "title"    => "required",
             "content"  => "required",
         ]);
-        /*
-         * Test if image changed
-         * Created By : Do3a2 Al3abbar
-         * Date : 17/12/2019 07:29 AM
-         */
+
+         // Test if image changed
         if($request->hasFile('image')){
             $featrued = $request->image;
             $featrued_new_name = time().$featrued->getClientOriginalName();
@@ -129,8 +122,6 @@ class PostController extends Controller
         }
         $post->title = $request->title;
         $post->content = $request->content;
-//        dd($post->tags()->sync($request->tags));
-//        dd($post->categories()->sync($request->category));
         $post->save();
 
         $post->tags()->sync($request->tags);
@@ -148,43 +139,28 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        /*
-         * $categoy = Category::find($id);
-         * $categoy->delete();
-         * return redirect()->route('categories');
-        */
+
         $post = Post::find($id);
         $post->delete();
         return redirect()->route('posts');
     }
     public function trashed()
     {
-        /*
-         *
-        $categoy = Category::find($id);
-        $categoy->delete();
-        return redirect()->route('categories');
-        */
+
+        // Delete the post without removing it from the database.
         $post = Post::onlyTrashed()->get();
-        //   dd($post);
-        // return redirect()->route('posts');
         return view('posts.softdeleted')->with('posts' , $post);
     }
     public function hdelete($id)
     {
-        /*
-         * Delete full info with data base
-         */
+        // Delete the post completely from the database.
         $post = Post::withTrashed()->where('id',$id)->first();
         $post->forceDelete();
         return redirect()->back();
     }
     public function restore($id)
     {
-        /*
-         * restore data that deleted soft delete
-         *
-         */
+        // restore data that deleted soft delete.
         $post = Post::withTrashed()->where('id',$id)->first();
         $post->restore();
         return redirect()->route('posts');

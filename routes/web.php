@@ -19,6 +19,8 @@ Route::get('/allcategory', 'HomeController@categories')->name('category.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/sendemail', 'SendEmailController@index')->name('sendemail');
+Route::post('/send_email/send', 'SendEmailController@send')->name('send');
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'auth'], function (){
 
